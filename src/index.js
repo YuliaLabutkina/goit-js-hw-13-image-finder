@@ -64,12 +64,14 @@ const imageSearch = (event) => {
     buttonLoadMoreRef.classList.add('button-is-hidden');
     inquiryUser = event.target.value;
     page = 1;
+    buttonSearchRef.removeAttribute('disabled')
 };
 
 
 const startImageSearch = (event) => {
     event.preventDefault();
     makeRequest(inquiryUser, page);
+    buttonSearchRef.setAttribute('disabled', '')
 };
 
 
