@@ -42,6 +42,7 @@ const makeRequest = async (inquiryUser, page) => {
         };
     
         new error('No more photos for your request!');
+        buttonLoadMoreRef.setAttribute('disabled', '')
         
     } catch(err) {
         new error('Error!' + err);
@@ -70,6 +71,7 @@ const imageSearch = (event) => {
 
 const startImageSearch = (event) => {
     event.preventDefault();
+    buttonLoadMoreRef.removeAttribute('disabled')
     makeRequest(inquiryUser, page);
     buttonSearchRef.setAttribute('disabled', '')
 };
