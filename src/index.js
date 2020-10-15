@@ -32,6 +32,14 @@ const makeRequest = async (inquiryUser, page) => {
     try {
         if(request.hits.length) {
             createMarkupGallery(request);
+
+            setTimeout(() => {
+                window.scrollTo({
+                    top: document.documentElement.offsetHeight,
+                    behavior: 'smooth',
+                });
+            }, 500);
+           
             buttonLoadMoreRef.classList.remove('button-is-hidden');
             return;
         };
@@ -53,10 +61,6 @@ const makeRequest = async (inquiryUser, page) => {
 const uploadMorePhotos = () => {
     page += 1;
     makeRequest(inquiryUser, page);
-    window.scrollTo({
-        top: document.documentElement.offsetHeight,
-        behavior: 'smooth'
-    });
 };
 
 
