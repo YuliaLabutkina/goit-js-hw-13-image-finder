@@ -18,6 +18,7 @@ let inquiryUser = null;
 const createMarkupGallery = ({ hits: images }) => {
     const markupGallery = images.reduce((acc, el) => acc + `<li class="gallery__item">${galleryMarkup(el)}</li>`, '');
     galleryImgRef.insertAdjacentHTML('beforeend', markupGallery);
+    console.log('125');
 };
 
 
@@ -32,14 +33,10 @@ const makeRequest = async (inquiryUser, page) => {
     try {
         if(request.hits.length) {
             createMarkupGallery(request);
-
-            setTimeout(() => {
-                window.scrollTo({
-                    top: document.documentElement.offsetHeight,
-                    behavior: 'smooth',
-                });
-            }, 500);
-           
+            window.scrollTo({
+                top: document.documentElement.offsetHeight,
+                behavior: 'smooth',
+            });
             buttonLoadMoreRef.classList.remove('button-is-hidden');
             return;
         };
