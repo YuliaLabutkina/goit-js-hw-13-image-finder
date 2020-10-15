@@ -18,7 +18,6 @@ let inquiryUser = null;
 const createMarkupGallery = ({ hits: images }) => {
     const markupGallery = images.reduce((acc, el) => acc + `<li class="gallery__item">${galleryMarkup(el)}</li>`, '');
     galleryImgRef.insertAdjacentHTML('beforeend', markupGallery);
-    console.log('125');
 };
 
 
