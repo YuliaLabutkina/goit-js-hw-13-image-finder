@@ -27,9 +27,9 @@ const resetMarkup = () => {
 
 
 const makeRequest = async (inquiryUser, page) => {
-    const request = await apiService(inquiryUser, page);
-
     try {
+        const request = await apiService(inquiryUser, page);
+
         if(request.hits.length) {
             createMarkupGallery(request);
             window.scrollTo({
